@@ -1,5 +1,18 @@
 """ Get the JSON from YouTube
     https://www.pinecone.io/learn/youtube-search/
+    
+    A list of 3 video ids will produce:                                                        ─╯
+    .
+    ├── mC43pZkpTec
+    │   ├── parsed_subtitles.txt
+    │   └── subtitles.txt
+    ├── Onzd5QxKaGQ
+    │   ├── parsed_subtitles.txt
+    │   └── subtitles.txt
+    └── wA_fI-wUqnw
+        ├── parsed_subtitles.txt
+        └── subtitles.txt
+    
 """
 import lxml
 from bs4 import BeautifulSoup
@@ -89,26 +102,32 @@ def parse_subtitles(video_list=video_list):
                 if len(passage) > 360:
                     # extract timestamp
                     start_second = dct["start"]
+                    start_second = int(round(start_second,0))
+                    
                     end_second = start_second + 30
+                    end_second = int(round(end_second,0))
+                    
 
                     documents.append(
                         {
                             "video_id": s,
                             "text": passage,
-                            "start_second": int(round(start_second,0)),
-                            "end_second": int(round(end_second,0)),
-                            "url": f"https://www.youtube.com/watch?v={s}&t={start_second}s",
+                            "start_second": start_second,
+                            "end_second": end_second,
+                            "url": f"https://www.youtube.com/watch?v={s}?feature=share&t={start_second}",
                             "title": metadata[s]['title'],
                             "thumbnail" : metadata[s]['thumbnail'],
                         }
                     )
 
                     # reset passage
-                    passage = " "
+                    passage = ""
 
             # write parsed file with meta
-            with open(path + f"{s}/parsed_subtitles.txt", "w") as dest:
-                json.dump(documents, dest)
+            with open(path + f"{s}/parsed_subtitles.txt", "w") as f:
+                for doc in documents:
+                    json.dump(doc, f)
+                    f.write('\n')
 
 
 if __name__ == "__main__":
@@ -121,6 +140,3 @@ if __name__ == "__main__":
     parse_subtitles(video_list)
     
     print("Done")
-
-    # # get meta
-    # print(get_meta(video_ids=video_list))
