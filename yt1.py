@@ -100,9 +100,12 @@ def parse_subtitles(video_list=video_list):
                 print(passage)
                 passage += "".join(tx)
                 if len(passage) > 360:
+                    
                     # extract timestamp
                     start_second = dct["start"]
                     start_second = int(round(start_second,0))
+                    if start_second > 4:
+                        start_second -= 3
                     
                     end_second = start_second + 30
                     end_second = int(round(end_second,0))
