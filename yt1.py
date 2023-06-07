@@ -95,7 +95,8 @@ def parse_subtitles(video_list=video_list):
                             "start_second": start_second,
                             "end_second": end_second,
                             "url": f"https://www.youtube.com/watch?v={s}&t={start_second}s",
-                            "meta": metadata[s],
+                            "title": metadata[s]['title'],
+                            "thumbnail" : metadata[s]['thumbnail'],
                         }
                     )
 
@@ -112,5 +113,8 @@ if __name__ == "__main__":
     # for i in video_list:
     # dl_trans(i)
 
-    # Parse transcript into 360 words max
+    #Parse transcript into 360 words max
     parse_subtitles(video_list)
+
+    # # get meta
+    # print(get_meta(video_ids=video_list))
