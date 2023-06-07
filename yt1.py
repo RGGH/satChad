@@ -13,7 +13,7 @@ parent_dir = "/home/rag/Documents/python/satChad"
 directory = "data/"
 path = os.path.join(parent_dir, directory)
 
-video_list = ["wA_fI-wUqnw", "Onzd5QxKaGQ"]
+video_list = ["wA_fI-wUqnw", "Onzd5QxKaGQ","mC43pZkpTec"]
 
 
 def dl_trans(video_id):
@@ -24,8 +24,9 @@ def dl_trans(video_id):
     :type video_id: string
     """
     transcr = YouTubeTranscriptApi.get_transcript(video_id)
+    print(f"fetch :",video_id)
     os.mkdir(path + video_id)
-    os.chdir(video_id)
+    os.chdir(path + video_id)
     json_obj = json.dumps(transcr)
     with open("subtitles.txt", "w") as f:
         f.write(json_obj)
@@ -33,6 +34,7 @@ def dl_trans(video_id):
 
 
 def get_meta(video_ids: List) -> List:
+    print("get meta")
     """
     Fetch the thumbnails
 
@@ -56,6 +58,7 @@ def get_meta(video_ids: List) -> List:
 
 
 def parse_subtitles(video_list=video_list):
+    print("parse subtitles")
     """
     Parse the raw transcript to build chunks of text plus
     metadata
@@ -92,8 +95,8 @@ def parse_subtitles(video_list=video_list):
                         {
                             "video_id": s,
                             "text": passage,
-                            "start_second": start_second,
-                            "end_second": end_second,
+                            "start_second": int(round(start_second,0)),
+                            "end_second": int(round(end_second,0)),
                             "url": f"https://www.youtube.com/watch?v={s}&t={start_second}s",
                             "title": metadata[s]['title'],
                             "thumbnail" : metadata[s]['thumbnail'],
@@ -109,12 +112,15 @@ def parse_subtitles(video_list=video_list):
 
 
 if __name__ == "__main__":
-    # Download and store raw Transcript in folder named as video_id
-    # for i in video_list:
-    # dl_trans(i)
+    
+    #Download and store raw Transcript in folder named as video_id
+    for i in video_list:
+        dl_trans(i)
 
     #Parse transcript into 360 words max
     parse_subtitles(video_list)
+    
+    print("Done")
 
     # # get meta
     # print(get_meta(video_ids=video_list))
