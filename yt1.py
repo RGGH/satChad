@@ -26,7 +26,7 @@ parent_dir = "/home/rag/Documents/python/satChad"
 directory = "data/"
 path = os.path.join(parent_dir, directory)
 
-video_list = ["wA_fI-wUqnw", "Onzd5QxKaGQ","mC43pZkpTec"]
+video_list = ["wA_fI-wUqnw", "Onzd5QxKaGQ","mC43pZkpTec","qEU0goAeNPk","v4na2pycrcc","x4-e5wq5AJ8"]
 
 
 def dl_trans(video_id):
@@ -137,8 +137,11 @@ if __name__ == "__main__":
     
     #Download and store raw Transcript in folder named as video_id
     for i in video_list:
-        dl_trans(i)
-
+        try:
+            dl_trans(i)
+        except:
+            pass
+        
     #Parse transcript into 360 words max
     parse_subtitles(video_list)
     
