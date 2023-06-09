@@ -37,4 +37,4 @@ ns = NeuralSearcher("youtube-search")
 
 
 
-print(ns.search("digital energy"))
+print(ns.search("seaside"))
