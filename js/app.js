@@ -13,22 +13,19 @@ async function SubmitVars() {
 
     var qur = document.getElementById('qur').value;
 
+    async function SubmitVars() {
 
-    const url = 'http://localhost6333/collections/youtube-search';
-
-
-    const res = await fetch(url, {
-
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            "text": qur,
-        })
-
-    });
+        var qur = document.getElementById('qur').value;
+    
+    
+        const url = 'https://findthatbit.com/collections/youtube-search';
+    
+    
+        const res = await fetch(url, {
+    
+            method: "GET",
+        });
+    
 
 
     console.log(JSON.stringify({ "search": qur }))

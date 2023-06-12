@@ -1,7 +1,10 @@
 from qdrant_client import QdrantClient
 from sentence_transformers import SentenceTransformer
 
-
+# sudo docker run -p 6333:6333 \
+#     -v $(pwd)/qdrant_storage:/qdrant/storage \
+#     qdrant/qdrant
+    
 class NeuralSearcher:
     def __init__(self, collection_name):
         self.collection_name = collection_name
