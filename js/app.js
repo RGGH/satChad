@@ -7,13 +7,13 @@ function myImageFunction(productSmallImg) {
 
 function va() {
     document.getElementById("myForm").submit();
-  }
+}
 
 async function SubmitVars() {
 
     var qur = document.getElementById('qur').value;
 
-    
+
     const url = 'http://localhost6333/collections/youtube-search';
 
 
@@ -30,10 +30,10 @@ async function SubmitVars() {
 
     });
 
-    
+
     console.log(JSON.stringify({ "search": qur }))
     const responseText = await res.json();
     console.log(responseText)
     document.getElementById("rs").innerHTML = "Yay";
-    
+
 };
