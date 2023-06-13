@@ -1,2 +1,2 @@
-qdrant_storage/  
-test_up/
+qdrant_storage/*  
+test_up/*
