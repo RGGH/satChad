@@ -22,12 +22,15 @@ import requests
 from youtube_transcript_api import YouTubeTranscriptApi
 from typing import List
 
-parent_dir = "/home/rag/Documents/python/satChad"
+parent_dir = "/home/admin/satChad"
 directory = "data/"
 path = os.path.join(parent_dir, directory)
 
-video_list = ["wA_fI-wUqnw", "Onzd5QxKaGQ","mC43pZkpTec","qEU0goAeNPk","v4na2pycrcc","x4-e5wq5AJ8"]
+#video_list = ["wA_fI-wUqnw", "Onzd5QxKaGQ","mC43pZkpTec","qEU0goAeNPk","v4na2pycrcc","x4-e5wq5AJ8"]
 
+# use pre-prepared text file of video ids
+with open("saylor-vids.txt") as f:
+    video_list = f.read().splitlines()
 
 def dl_trans(video_id):
     """
