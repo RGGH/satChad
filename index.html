@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 	<html lang="en">
     <head>
+	<title>Find That Bit | Sematic Search on Michael Saylor's Video Interviews</title>
+	<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -8,10 +10,27 @@
             integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
             crossorigin="anonymous"
         >
+	<link rel="stylesheet" href="./styles.css">
         <script src="js/app.js"></script>
-    </head>
-    <body>
+	    <script>
+		          var htmlContent = `
+		            <div class="m-4">
+		              <div class="card text-center">
+		                <div class="card-header">Python Developer | AI | Bitcoin</div>
+		                <div class="card-body">
+		                  <h5 class="card-title">UK based Freelancer</h5>
+		                  <p class="card-text">Would you like me to work on a project you have, set up a vector database, advise on how AI and automation can improve your business?</p>
+		                  <a href="https://redandgreen.co.uk/contact/" class="btn btn-primary">Send me a message via my 'redandgreen' website</a>
+		                </div>
+		   <div class="card-footer text-muted"><a href="https://github.com/RGGH">github</a></div>
+		              </div>
+		            </div>
+		          `;
 
+		        </script>
+    </head>
+
+    <body>
 
   <div class="container">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -22,10 +41,9 @@
       </div>
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="#" class="nav-link px-2">Features</a></li>
-        <li><a href="#" class="nav-link px-2">FAQs</a></li>
-        <li><a href="#" class="nav-link px-2">About</a></li>
+        <li><a href="#" class="nav-link px-2 link-secondary" onclick="clearAll()";>Home</a></li>
+        <li><a href="#" class="nav-link px-2" onclick="features()";>Features</a></li>
+        <li><a href="#" class="nav-link px-2" onclick="setHtmlContentById('aboot',htmlContent)";>About</a></li>
       </ul>
 
       <div class="col-md-3 text-end">
@@ -46,14 +64,13 @@
                 >
                     <div>
                         <p class="text-center mt-3">
-                            <br>
-                            Enter a sentence, phrase, or word to "find-that-bit" of Michael Saylor's videos discussing Bitcoin
+			Enter a sentence, phrase, or word to "find-that-bit" of a Michael Saylor video - send me some Sats yeah?<br>
                         </p>
                         <p id="co2" class="text-center mt-3"></p>
-                    </div>
-                    🔎
+		    </div>&#128270;
                     <input
-                        placeholder=""
+			style="font-size: 1.35em"
+                        placeholder="digital property"
                         type="text"
                         name="qur"
                         id="qur"
@@ -61,6 +78,7 @@
 			submit.disabled = false;"
                     >
                     <input
+			style="font-size: 1.35em"
                         type="submit"
                         name="submit"
                         id="id"
@@ -73,13 +91,18 @@
 		<div class="text-center mt-3">
 			<img src="images/semantic.png">
 		</div>
-                <div class="">
+		<div class="text-center mt-3" id="satoshi">
+			<img src="images/satoshi_lightning_address.jpg" style="max-height: 150px; max-width: 150px;"/>
+		</div>
+                <div class="text-center mt-3" id="central">
+			<div class="text-center mt-3" id="featuresId">
+			</div>
 
                                         <!-- row 0 -->
                     <section>
                         <br>
                     <div class="row">
-                        <div class="col-md-2" id="ru0" style="font-weight: bold;">    
+                        <div class="col-md-2" id="ru0" style="font-weight: bold; font-size: 0.875em;">    
                             <div class = "thumbnail" "im0">
                                 <img src = "" style="max-height: 150px; max-width: 150px;" />
                                 </div>
@@ -95,7 +118,7 @@
                     <section>
                         <br>
                     <div class="row">
-                        <div class="col-md-2" id="ru1" style="font-weight: bold;">    
+                        <div class="col-md-2" id="ru1" style="font-weight: bold;font-size: 0.875em;">    
                             <div class = "thumbnail" id="im1">
                                 <img src = "" style="max-height: 150px; max-width: 150px;" />
                                 </div>
@@ -113,7 +136,7 @@
                     <section>
                         <br>
                     <div class="row">
-                        <div class="col-md-2" id="ru2" style="font-weight: bold;">    
+                        <div class="col-md-2" id="ru2" style="font-weight: bold;font-size: 0.875em;">    
                             <div class = "thumbnail" id="im2">
                                 <img src = "" style="max-height: 150px; max-width: 150px;" />
                                 </div>
@@ -129,7 +152,7 @@
                     <section>
                         <br>
                     <div class="row">
-                        <div class="col-md-2" id="ru3" style="font-weight: bold;">    
+                        <div class="col-md-2" id="ru3" style="font-weight: bold;font-size: 0.875em;">    
                             <div class = "thumbnail" id="im3">
                                 <img src = "" style="max-height: 150px; max-width: 150px;" />
                                 </div>
@@ -147,7 +170,7 @@
                     <section>
                         <br>
                     <div class="row">
-                        <div class="col-md-2" id="ru4" style="font-weight: bold;">    
+                        <div class="col-md-2" id="ru4" style="font-weight: bold;font-size: 0.875em;">    
                             <div class = "thumbnail" id="im4">
                                 <img src = "" style="max-height: 150px; max-width: 150px;" />
                                 </div>
@@ -161,12 +184,15 @@
                         </div>
                     </section>
             
-
-                               
+		<div id="aboot">
+		</div>
 
                 </div>
         
             </div>
+    </div>
+    <div class="text-center mt-3" id="findthatbit">
+	    <h1>"find that bit" - Video Content Semantic Similarity Search</h1>
     </div>
 </div>
 </body>
