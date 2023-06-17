@@ -17,7 +17,7 @@ the index.html is in /var/www/html and the js is inside the js folder
 
 ├── saylor-vids.txt
 
-├── up_quadrant.py
+├── up_quadrant.py<br>
 └── yt1.py
 
 run yt1 to get transcripts
