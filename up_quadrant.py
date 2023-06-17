@@ -24,14 +24,14 @@ collection_info = client.get_collection(collection_name=coll_name)
 # get highest index
 print(f"current vector count = ", collection_info.vectors_count)
 
-try:
-    client.create_collection(
-        collection_name=coll_name,
-        vectors_config=VectorParams(size=vs, distance=Distance.COSINE),
-    )
-except:
-    pass
-
+#try:
+#    client.create_collection(
+#        collection_name=coll_name,
+#        vectors_config=VectorParams(size=vs, distance=Distance.COSINE),
+#    )
+#except:
+#    pass
+#
 # ----------------------------------------------------
 fname = "data/8Mhu6dxj7qk/parsed_subtitles.txt"
 
