@@ -16,24 +16,18 @@ vs = model.get_sentence_embedding_dimension()
 
 
 client = QdrantClient(url="http://127.0.0.1:6333")
-coll_name="youtube-search"
+coll_name="youtube-search2"
 print(f"collection = {coll_name}")
 
-collection_info = client.get_collection(collection_name=coll_name)
+client.recreate_collection(
+    collection_name="youtube-search2",
+    vectors_config=VectorParams(size=vs, distance=Distance.COSINE),
+)
 
-# get highest index
+collection_info = client.get_collection(collection_name="youtube-search2")
 print(f"current vector count = ", collection_info.vectors_count)
-
-try:
-    client.create_collection(
-        collection_name=coll_name,
-        vectors_config=VectorParams(size=vs, distance=Distance.COSINE),
-    )
-except:
-    pass
-
 # ----------------------------------------------------
-fname = "data/8Mhu6dxj7qk/parsed_subtitles.txt"
+fname = "data/eRvBj7j24B0/parsed_subtitles.txt"
 
 df = pd.read_json(fname, lines=True)
 print(df[:4])

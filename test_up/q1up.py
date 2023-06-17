@@ -3,7 +3,7 @@ from qdrant_client import QdrantClient
 
 # set up client
 client = QdrantClient(host="localhost", port=6333)
-coll_name="testx_collection"
+coll_name="testx2_collection"
 collection_info = client.get_collection(collection_name=coll_name)
 
 # get highest index

@@ -14,6 +14,7 @@ function va() {
 async function SubmitVars() {
     var qur = document.getElementById('qur').value;
     clearFeatures();
+    clearHtmlContentById('findthatbit');
     // query FastAPI
     const url = `https://findthatbit.com/api/search?q=${qur}&limit=5`;
     console.log(url)
@@ -31,11 +32,11 @@ const res = await fetch(url,{method:"GET"});
 	 let dynamicIdtx = 'rs' + i;
 	 let dynamicIdth = 'th' + i;
 
-
+	addShadowToRow();
 	document.getElementById("satoshi").innerHTML = '';
 	document.getElementById(dynamicId).innerHTML = '<a href="' + obj[i].url + '">' + obj[i].title + '</a>';
 	document.getElementById(dynamicIdtx).innerHTML = "..." + obj[i].text + "...";
-	document.getElementById(dynamicIdth).innerHTML = '<img src="' + obj[i].thumbnail +'" style="max-height: 150px; max-width: 150px;"/>';
+	document.getElementById(dynamicIdth).innerHTML = '<img src="' + obj[i].thumbnail +'" style="max-height: 150px; max-width: 150px;padding-top: 25px;"/>';
 	document.getElementById(dynamicIdth).innerHTML = '<a href="' + obj[i].url + '"><img src="' + obj[i].thumbnail +'" style="max-height: 150px; max-width: 150px;"/></a>';
 
 	}
@@ -52,7 +53,6 @@ function features(){
 
 function clearFeatures(){
 	clearHtmlContentById('aboot');
-	clearHtmlContentById('findthatbit');
 	document.getElementById("featuresId").innerHTML = "";
 }
 
@@ -67,6 +67,7 @@ function clearResults(){
 		        document.getElementById(dynamicIdth).innerHTML ="";
 
 	clearHtmlContentById('findthatbit');
+	clearShadowFromRows();
 }};
 
 function clearAll(){
@@ -90,3 +91,38 @@ function clearHtmlContentById(id) {
 		      element.innerHTML = "";
 		    }
 }
+
+
+function addShadowToRow() {
+  const rowClassName = 'row';
+  const rowElements = document.getElementsByClassName(rowClassName);
+
+  for (let i = 0; i < rowElements.length; i++) {
+    const rowElement = rowElements[i];
+    rowElement.style.paddingTop = '9px';
+    rowElement.style.paddingBottom = '9px';
+    rowElement.style.boxShadow = '4px 2px 4px rgba(0, 0, 0, 0.2)';
+  }
+
+}
+
+
+function clearShadowFromRows() {
+  const rowClassName = 'row';
+  const rowElements = document.getElementsByClassName(rowClassName);
+
+  for (let i = 0; i < rowElements.length; i++) {
+    const rowElement = rowElements[i];
+    rowElement.style.boxShadow = 'none';
+  }
+
+}
+
+function setTextFromHref(linkId) {
+  var linkText = document.getElementById(linkId).textContent;
+  document.getElementById('qur').value = linkText;
+  var submitButton = document.getElementById('id');
+  submitButton.disabled = false;
+}
+
+

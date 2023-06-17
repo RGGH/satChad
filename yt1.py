@@ -87,7 +87,7 @@ def parse_subtitles(video_list=video_list):
 
     # get thumbnails url
     metadata = get_meta(video_ids=video_list)
-
+    print(f"processing raw subtitles {metadata}")
     # iterate over each video using its folder name (video_id)
     for i, s in enumerate(splits):
         # read the contents of the raw file
