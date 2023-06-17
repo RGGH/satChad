@@ -13,10 +13,10 @@ the index.html is in /var/www/html and the js is inside the js folder
 
 .
 
-├── data
-├── saylor-vids.txt
+├── data<br>
+├── saylor-vids.txt<br>
 ├── up_quadrant.py<br>
-└── yt1.py
+└── yt1.py<br>
 
 run yt1 to get transcripts<br>
 run up_quadrant to do the upsert
