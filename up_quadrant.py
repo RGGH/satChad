@@ -33,7 +33,22 @@ print(f"current vector count = ", collection_info.vectors_count)
 #    pass
 #
 # ----------------------------------------------------
-fname = "data/8Mhu6dxj7qk/parsed_subtitles.txt"
+import os
+
+# pick the top file from the list to process
+with open('saylor-vids.txt', 'r') as fin:
+        data = fin.read().splitlines(True)
+
+        upsert_id = (data[0]).strip('\n')
+
+        with open('saylor-vids.txt', 'w') as fout:
+                fout.writelines(data[1:])
+
+                print(upsert_id)
+
+# ----------------------------------------------------
+
+fname = f"data/{upsert_id}/parsed_subtitles.txt"
 
 df = pd.read_json(fname, lines=True)
 print(df[:4])
@@ -77,5 +92,13 @@ client.upsert(
 )
 collection_info = client.get_collection(collection_name=coll_name)
 print(f"new vector count = after upsert ", collection_info.vectors_count)
+
+
+# if upsert works - delete data/{upsertfile}/ 
+import shutil
+shutil.rmtree("data/"+ upsert_id)
+print(f"deleted{upsert_id}")
+
+
 print("Done")
 
