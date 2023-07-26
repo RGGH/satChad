@@ -1,5 +1,8 @@
 # Sat Chad
 
+YouTube Video:
+https://www.youtube.com/watch?v=PKLMzISoYq0
+
 all-MiniLM-L6-v2
 This is a sentence-transformers model: It maps sentences & paragraphs to a 384 dimensional dense vector space and can be used for tasks like clustering or semantic search.
 
