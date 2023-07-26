@@ -20,3 +20,5 @@ the index.html is in /var/www/html and the js is inside the js folder
 
 run yt1 to get transcripts<br>
 run up_quadrant to do the upsert
+
+Note: The FastAPI API is "neural_searcher.py" and not "app.py" !! My bad. This was very much an experiment which came good!
